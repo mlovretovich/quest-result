@@ -7,12 +7,14 @@ Results of my quest in the cloud
 ## What did I do?
 
 - [X] Start a git repository. 
-- [ ] Deploy the app in the public cloud (Amazon).
-- [X] Deploy the app in a Docker container. 
-- [ ] Inject an Environment variable (SECRET_WORD) in the Docker container. 
-- [ ] Deploy a load balancer in front of the app.
-- [ ] Use Infrastructure as Code (IaC) to "codify" your deployment (Terraform).
-- [ ] Add TLS (https).
+- [X] Deploy the app in the public cloud (Amazon).
+- [X] Deploy the app in a Docker container. [^1]
+- [X] Inject an Environment variable (SECRET_WORD) in the Docker container. 
+- [X] Deploy a load balancer in front of the app.
+- [X] Use Infrastructure as Code (IaC) to "codify" your deployment (Terraform).
+- [X] Add TLS (https).
+
+[^1]: 
 
 ## How did I do it?
 
