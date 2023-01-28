@@ -46,11 +46,11 @@ The application is built and deployed using make commands.
 ```sh
 $ make build
 ```
-## Terraform
+### Terraform
 
-### Modules
+#### Modules
 
-### Variables
+#### Variables
 
 
 ## What's next?
