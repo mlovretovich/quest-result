@@ -14,7 +14,7 @@ Results of my quest in the cloud
 - [X] Use Infrastructure as Code (IaC) to "codify" your deployment (Terraform).
 - [X] Add TLS (https).
 
-[^1]: 
+[^1]: I am considering this complete even though the application does not pass it's "docker" check. I assume this is due to the FARGATE platform not being compatible or granting access to check the docker daemon. I don't have access to the application source code so I cannot debug this further.
 
 ## How did I do it?
 
@@ -37,6 +37,10 @@ The application is built and deployed using make commands.
 | ------- | ----- |
 | build | builds docker image named after the project. |
 | push |  pushes docker container to ECR Repository. |
+| init |  initializes terraform environment and installs required provider and modules |
+| plan |  outputs a terraform plan based on current state and changes|
+| deploy |  builds, pushes, and applys the terraform plan for the current app version |
+| destroy |  tears down all infrastructure |
 
 ##### Example 
 ```sh
