@@ -8,11 +8,8 @@ PROJECT_VERSION = $(shell git describe --tags | sed 's/\(.*\)-.*/\1/')
 AWS_ACCOUNT_ID = $(shell aws sts get-caller-identity --query "Account" --output text)
 AWS_REGION = $(shell aws configure get region)
 
-
-
-
 build: 
-	git diff-index --quiet HEAD 
+	@git diff-index --quiet HEAD 
 	@docker build . -t $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(PROJECT_NAME):$(PROJECT_VERSION)
 
 push: build
