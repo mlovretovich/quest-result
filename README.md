@@ -1,5 +1,7 @@
 # A Quest In The Clouds: Results
 Results of my quest in the cloud
+![quest](https://user-images.githubusercontent.com/2027534/215284609-361c15ff-8ee1-4f98-a543-8b5bf51091c7.gif)
+
 
 ## What did I do?
 
@@ -25,7 +27,7 @@ The application is built and deployed using make commands.
 | ---- | ------- | 
 | [terraform](https://www.terraform.io/) | 1.3 | 
 | [awscli](https://aws.amazon.com/cli/) | 2.9 | 
-| [docker]https://www.docker.com/ | 20 | 
+| [docker](https://www.docker.com/) | 20 | 
 
 #### Commands
 | Command | Notes |
