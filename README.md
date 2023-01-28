@@ -23,9 +23,9 @@ The application is built and deployed using make commands.
 #### Requirements
 | Name | Version |
 | ---- | ------- | 
-| terraform | 1.3 | 
-| awscli | 2.9 | 
-| docker | 20 | 
+| [terraform](https://www.terraform.io/) | 1.3 | 
+| [awscli](https://aws.amazon.com/cli/) | 2.9 | 
+| [docker]https://www.docker.com/ | 20 | 
 
 #### Commands
 | Command | Notes |
