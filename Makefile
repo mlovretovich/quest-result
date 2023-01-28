@@ -10,7 +10,9 @@ AWS_REGION = $(shell aws configure get region)
 
 
 
+
 build: 
+	git diff-index --quiet HEAD 
 	@docker build . -t $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(PROJECT_NAME):$(PROJECT_VERSION)
 
 push: build
