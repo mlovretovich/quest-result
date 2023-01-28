@@ -11,6 +11,9 @@ Results of my quest in the cloud
 - [ ] Use Infrastructure as Code (IaC) to "codify" your deployment (Terraform).
 - [ ] Add TLS (https).
 
+## How did I do it?
+
+
 
 ## Components
 
@@ -20,9 +23,9 @@ The application is built and deployed using make commands.
 #### Requirements
 | Name | Version |
 | ---- | ------- | 
-| terraform | >=1.3 | 
-| awscli | >= 2.9 | 
-| docker | >= 20 | 
+| terraform | 1.3 | 
+| awscli | 2.9 | 
+| docker | 20 | 
 
 #### Commands
 | Command | Notes |
@@ -31,6 +34,18 @@ The application is built and deployed using make commands.
 | push |  pushes docker container to ECR Repository. |
 
 ##### Example 
-```
+```sh
 $ make build
 ```
+## Terraform
+
+### Modules
+
+### Variables
+
+
+## What's next?
+
+
+
+
