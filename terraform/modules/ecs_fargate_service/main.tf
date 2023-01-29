@@ -1,15 +1,13 @@
+# get default security group
+#
 data "aws_security_group" "default" {
   vpc_id = var.vpc_id
-  # vpc_id = aws_vpc.main.id 
   name = "default"
 }
 
 data "aws_ecr_repository" "main" {
   name = var.ecr_repository_name
 }
-
-
-
 
 resource "aws_ecs_cluster" "main" {
   name = "${var.app_name}-cluster"
@@ -19,9 +17,8 @@ resource "aws_ecs_cluster" "main" {
   }
 }
 
-
+# create IAM task role permissions to pull docker image and log to cloudwatch
 #
-
 resource "aws_iam_role" "task_role" {
   name = "ecs-task-${var.app_name}"
   assume_role_policy = jsonencode({
@@ -37,7 +34,6 @@ resource "aws_iam_role" "task_role" {
       },
     ]
   })
-
   inline_policy {
     name = "my_inline_policy"
     policy = jsonencode({
@@ -58,9 +54,7 @@ resource "aws_iam_role" "task_role" {
       ]
     })
   }
-
 }
-
 
 resource "aws_ecs_task_definition" "main" {
   family                   = var.app_name
@@ -85,7 +79,6 @@ resource "aws_ecs_task_definition" "main" {
     }
   ])
 }
-
 
 # defines ecs fargate service
 #

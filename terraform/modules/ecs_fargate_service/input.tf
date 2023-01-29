@@ -8,16 +8,6 @@ variable "app_version" {
   nullable = false
 }
 
-variable "fqdn" {
-  type    = string
-  default = "quest.brotherhoodwithoutmanners.net"
-}
-variable "lb_access_logs_bucket" {
-  type     = string
-  nullable = true
-  default  = "mlovretovich-lb-access-logs"
-}
-
 variable "subnet_ids" {
   type = list(string)
 }
