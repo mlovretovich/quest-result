@@ -5,7 +5,7 @@ creates simple network resources for deployed application.
 | Name | Type | Required? | Description |
 | ---- | ---- | --------- | ----------- | 
 | app_name | string | Yes | The name of the application. This is used to namespace resources created. |
-| tags | string | No | The version of the container that should be run and declared in the task definition |
+| tags | map(string) | No | The version of the container that should be run and declared in the task definition |
 
 
 ## Usage
