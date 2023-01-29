@@ -13,4 +13,5 @@ This module creates a load balancer within a vpc with both HTTP and HTTPS listen
 ## Outputs
 
 | Name | Type | Description |
+| ---- | ---- | ----------- | 
 | target_group_arn | string | ARN of the target group created |
