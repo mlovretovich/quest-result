@@ -36,12 +36,12 @@ The application is built and deployed using make commands.
 #### Commands
 | Command | Notes |
 | ------- | ----- |
-| build | builds docker image named after the project. |
-| push |  pushes docker container to ECR Repository. |
-| init |  initializes terraform environment and installs required provider and modules |
-| plan |  outputs a terraform plan based on current state and changes|
-| deploy |  builds, pushes, and applys the terraform plan for the current app version |
-| destroy |  tears down all infrastructure |
+| ```make build``` | builds docker image named after the project. |
+| ```make push``` |  pushes docker container to ECR Repository. |
+| ```make init``` |  initializes terraform environment and installs required provider and modules |
+| ```make plan``` |  outputs a terraform plan based on current state and changes|
+| ```make deploy``` |  builds, pushes, and applys the terraform plan for the current app version |
+| ```make destroy``` |  tears down all infrastructure |
 
 ##### Example 
 ```sh
