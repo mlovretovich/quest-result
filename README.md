@@ -56,12 +56,14 @@ The terraform in this project will bring up a VPC and most resources required to
 * [network](terraform/modules/network/README.md)
 
 #### Variables
-| Name | Required? | Notes |
-| ---- | --------- | ----- | 
-| app_name | Yes | The app_name variable is set in the Makefile based on the project's directory name | 
-| app_version | Yes | The app_version variable is set in the Makefile based on the current git tag + commit number |
+| Name | Type | Required? | Notes |
+| ---- | ---- | --------- | ----- | 
+| app_name | string | Yes | The app_name variable is set in the Makefile based on the project's directory name | 
+| app_version | string | Yes | The app_version variable is set in the Makefile based on the current git tag + commit number |
+| ecr_repository_name | string | No | The ECR repository name. Defaults to app_name if not supplied |
+| tags | map(string) | No | Map of tags to apply to taggable resources. By default ProjectName and ProjectVersion are set but tags can be added here as needed |
 
-#### Usage
+<details><summary>#### Usage</summary>
 ```hcl
 terraform {
   required_providers {
@@ -108,6 +110,7 @@ module "ecs_fargate_service" {
   tags                = local.tags
 }
 ```
+</details>
 
 ## Given more time, I would improve...
 There are a number of changes I would make to this project given time. 
