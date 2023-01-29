@@ -63,7 +63,7 @@ The terraform in this project will bring up a VPC and most resources required to
 | ecr_repository_name | string | No | The ECR repository name. Defaults to app_name if not supplied |
 | tags | map(string) | No | Map of tags to apply to taggable resources. By default ProjectName and ProjectVersion are set but tags can be added here as needed |
 
-<details><summary>#### Usage</summary>
+#### <details><summary>Usage</summary>
 ```hcl
 terraform {
   required_providers {
