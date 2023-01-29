@@ -2,7 +2,7 @@
 #
 data "aws_security_group" "default" {
   vpc_id = var.vpc_id
-  name = "default"
+  name   = "default"
 }
 
 data "aws_ecr_repository" "main" {
@@ -15,6 +15,8 @@ resource "aws_ecs_cluster" "main" {
     name  = "containerInsights"
     value = "enabled"
   }
+
+  tags = var.tags
 }
 
 # create IAM task role permissions to pull docker image and log to cloudwatch
@@ -54,6 +56,8 @@ resource "aws_iam_role" "task_role" {
       ]
     })
   }
+
+  tags = var.tags
 }
 
 resource "aws_ecs_task_definition" "main" {
@@ -78,6 +82,7 @@ resource "aws_ecs_task_definition" "main" {
     ]
     }
   ])
+  tags = var.tags
 }
 
 # defines ecs fargate service
@@ -104,4 +109,5 @@ resource "aws_ecs_service" "main" {
     container_port   = 3000
   }
 
+  tags = var.tags
 }

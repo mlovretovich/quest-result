@@ -107,10 +107,10 @@ resource "aws_security_group" "lb_sg" {
 # create load balancer, listeners for each port, and target group
 #
 resource "aws_lb" "main" {
-  name               = "${var.app_name}-lb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.lb_sg.id, aws_security_group.lb_sg_https.id, data.aws_security_group.default.id]
+  name                       = "${var.app_name}-lb"
+  internal                   = false
+  load_balancer_type         = "application"
+  security_groups            = [aws_security_group.lb_sg.id, aws_security_group.lb_sg_https.id, data.aws_security_group.default.id]
   subnets                    = var.subnet_ids
   enable_deletion_protection = false
 

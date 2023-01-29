@@ -27,3 +27,8 @@ variable "instance_count" {
 variable "ecr_repository_name" {
   type = string
 }
+
+variable "tags" {
+  type    = object
+  default = {}
+}

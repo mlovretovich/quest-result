@@ -24,17 +24,17 @@ init:
 
 plan:
 	@cd terraform && \
-	terraform plan -var app_name="$(PROJECT_NAME)" -var app_version="$(PROJECT_VERSION)" && \
+	terraform plan -var app_name="$(PROJECT_NAME)" -var app_version="$(PROJECT_VERSION)" -var-file="default.tfvars" && \
 	cd ..
 
 apply:
 	@cd terraform && \
-	terraform apply -auto-approve -var app_name="$(PROJECT_NAME)" -var app_version="$(PROJECT_VERSION)" && \
+	terraform apply -auto-approve -var app_name="$(PROJECT_NAME)" -var app_version="$(PROJECT_VERSION)" -var-file="default.tfvars" && \
 	cd ..
 
 deploy: build push apply
 
 destroy:
 	@cd terraform && \
-		terraform destroy -auto-approve -var app_name="$(PROJECT_NAME)" -var app_version="$(PROJECT_VERSION)" && \
+		terraform destroy -auto-approve -var app_name="$(PROJECT_NAME)" -var app_version="$(PROJECT_VERSION)" -var-file="default.tfvars" && \
 		cd ..
