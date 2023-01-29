@@ -28,3 +28,14 @@ variable "lb_access_logs_bucket" {
   type     = string
   nullable = false
 }
+
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
+
+variable "ecr_repository_name" {
+  type = string
+  default = null
+  nullable = true
+}

@@ -28,6 +28,7 @@ data "aws_security_group" "default" {
 resource "aws_acm_certificate" "main" {
   domain_name       = var.fqdn
   validation_method = "DNS"
+  tags              = var.tags
 }
 
 # create dns records for certificate validation
@@ -79,6 +80,7 @@ resource "aws_security_group" "lb_sg_https" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+  tags = var.tags
 }
 
 resource "aws_security_group" "lb_sg" {
@@ -102,6 +104,7 @@ resource "aws_security_group" "lb_sg" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+  tags = var.tags
 }
 
 # create load balancer, listeners for each port, and target group
@@ -119,7 +122,7 @@ resource "aws_lb" "main" {
     prefix  = "${var.app_name}-lb"
     enabled = true
   }
-
+  tags = var.tags
 }
 
 resource "aws_lb_target_group" "main" {
@@ -149,6 +152,7 @@ resource "aws_lb_listener" "front_end" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.main.arn
   }
+  tags = var.tags
 }
 
 resource "aws_lb_listener" "front_end_tls" {
@@ -162,6 +166,7 @@ resource "aws_lb_listener" "front_end_tls" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.main.arn
   }
+  tags = var.tags
 }
 
 
