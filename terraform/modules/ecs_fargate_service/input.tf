@@ -29,6 +29,6 @@ variable "ecr_repository_name" {
 }
 
 variable "tags" {
-  type    = object
+  type    = map(string)
   default = {}
 }
