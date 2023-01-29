@@ -18,7 +18,8 @@ Results of my quest in the cloud
 
 ## How did I do it?
 * I deployed the application on the Amazon Cloud's FARGATE serverless platform for containers. I chose FARGATE due to it's ability to run containers while creating minimal AWS resources. 
-* I used Terraform to 
+* I used Terraform to codify the environment. 
+* I created a simple Makefile to simplfy the bringing up and down the environment. 
 
 ## Components
 
@@ -64,12 +65,15 @@ The terraform in this project will bring up a VPC and most resources required to
 
 ## Given more time, I would improve...
 There are a number of changes I would make to this project given time. 
-* it does bother me that the docker check does not pass. If this were a hard requirement and I am unable to debug the source code I would include a version of the application that runs on a simple ec2 instance.
-* Add further network security. The Application should not need public IP addresses but for some reason I could not get it to pass health checks with a private IP. It's difficult to debug through without source code.
-* Create
-* CI/CD 
+1. it does bother me that the docker check does not pass. If this were a hard requirement and I am unable to debug the source code I would include a version of the application that runs on a simple ec2 instance.
+2. Add further network security. The Application should not need public IP addresses but for some reason I could not get it to pass health checks with a private IP. It's difficult to debug through without source code.
+3. I would make the application environment aware. staging/qa/production environments created using aws organizations separate accounts. 
+4. Create
+5. CI/CD with my preferred git flow:
 * * git actions to include terraform plans on pull requests
-* 
+* * commits to main trigger a deployment into the staging environment
+* * pushed tags trigger a deployment into the production environment. 
+
 
 
 
