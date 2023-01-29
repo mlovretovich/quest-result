@@ -14,6 +14,6 @@ creates simple network resources for deployed application.
 module "network" {
   source   = "./modules/network"
   app_name = [app_name]
-  tags                = [tags]
+  tags     = [tags]
 }
 ```

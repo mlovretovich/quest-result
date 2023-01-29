@@ -35,7 +35,7 @@ variable "tags" {
 }
 
 variable "ecr_repository_name" {
-  type = string
-  default = null
+  type     = string
+  default  = null
   nullable = true
 }

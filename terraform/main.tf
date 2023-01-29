@@ -9,16 +9,16 @@ terraform {
 
 locals {
   ecr_repository_name = var.ecr_repository_name == null ? var.app_name : var.ecr_repository_name
-  tags = merge(var.tags, { 
-    ProjectName    = var.app_name
-    Version = var.app_version
-  } )
+  tags = merge(var.tags, {
+    ProjectName = var.app_name
+    Version     = var.app_version
+  })
 }
 
 module "network" {
   source   = "./modules/network"
   app_name = var.app_name
-  tags                = local.tags
+  tags     = local.tags
 }
 
 module "load_balancer" {
