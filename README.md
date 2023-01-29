@@ -50,16 +50,16 @@ $ make build
 The terraform in this project will bring up a VPC and most resources required to run this application in the Amazon Cloud. 
 
 #### Modules
-* ecs_fargate_service
-* load_balancer
-* network
+* [ecs_fargate_service](terraform/modules/ecs_fargate_service/README.md)
+* [load_balancer](terraform/modules/load_balancer/README.md)
+* [network](terraform/modules/network/README.md)
 
 #### Variables
 | Name | Required? | Notes |
 | ---- | --------- | ----- | 
 | app_name | Yes | The app_name variable is set in the Makefile based on the project's directory name | 
 | app_version | Yes | The app_version variable is set in the Makefile based on the current git tag + commit number |
- 
+
 
 
 ## Given more time, I would improve...
