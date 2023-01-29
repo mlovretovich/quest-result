@@ -17,8 +17,8 @@ Results of my quest in the cloud
 [^1]: I am considering this complete even though the application does not pass it's "docker" check. I assume this is due to the FARGATE platform not being compatible or granting access to check the docker daemon. I don't have access to the application source code so I cannot debug this further.
 
 ## How did I do it?
-I deployed the application on the Amazon Cloud's FARGATE serverless platform for containers. This is a very simple and easy 
-
+* I deployed the application on the Amazon Cloud's FARGATE serverless platform for containers. I chose FARGATE due to it's ability to run containers while creating minimal AWS resources. 
+* I used Terraform to 
 
 ## Components
 
@@ -47,13 +47,22 @@ The application is built and deployed using make commands.
 $ make build
 ```
 ### Terraform
+The terraform in this project will bring up a VPC and most resources required to run this application in the Amazon Cloud. 
 
 #### Modules
+* ecs_fargate_service
+* load_balancer
+* network
 
 #### Variables
+| Name | Required? | Notes |
+| ---- | --------- | ----- | 
+| app_name | Yes | The app_name variable is set in the Makefile based on the project's directory name | 
+| app_version | Yes | The app_version variable is set in the Makefile based on the current git tag + commit number |
+ 
 
 
-## What's next?
+## Given more time, I would improve...
 There are a number of changes I would make to this project given time. 
 * it does bother me that the docker check does not pass. If this were a hard requirement and I am unable to debug the source code I would include a version of the application that runs on a simple ec2 instance.
 * Add further network security. The Application should not need public IP addresses but for some reason I could not get it to pass health checks with a private IP. It's difficult to debug through without source code.
