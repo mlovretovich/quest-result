@@ -70,9 +70,9 @@ There are a number of changes I would make to this project given time.
 3. I would make the application environment aware. staging/qa/production environments created using aws organizations separate accounts. 
 4. Create
 5. CI/CD with my preferred git flow:
-* * git actions to include terraform plans on pull requests
-* * commits to main trigger a deployment into the staging environment
-* * pushed tags trigger a deployment into the production environment. 
+	- git actions to include terraform plans on pull requests
+	- commits to main trigger a deployment into the staging environment
+	- pushed tags trigger a deployment into the production environment. 
 
 
 
