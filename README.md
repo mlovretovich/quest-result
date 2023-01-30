@@ -3,6 +3,12 @@ Results of my quest in the cloud
 
 ![quest](https://user-images.githubusercontent.com/2027534/215284609-361c15ff-8ee1-4f98-a543-8b5bf51091c7.gif)
 
+## URLs
+* https://quest.thisistheway.fyi/
+* https://quest.thisistheway.fyi/docker
+* https://quest.thisistheway.fyi/secret_word
+* https://quest.thisistheway.fyi/loadbalanced
+* https://quest.thisistheway.fyi/tls
 
 ## What did I do?
 
