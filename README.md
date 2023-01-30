@@ -62,6 +62,10 @@ The terraform in this project will bring up a VPC and most resources required to
 | app_version | string | Yes | The app_version variable is set in the Makefile based on the current git tag + commit number |
 | ecr_repository_name | string | No | The ECR repository name. Defaults to app_name if not supplied |
 | tags | map(string) | No | Map of tags to apply to taggable resources. By default ProjectName and ProjectVersion are set but tags can be added here as needed |
+| fqdn | string | Yes | Fully qualified domain name |
+| instance_count | number | number of instances to run on ECS |
+| lb_access_logs_bucket | string | Yes | s3 bucket for load balancer's access logs |
+
 
 #### <details><summary>Usage</summary>
 ```hcl
