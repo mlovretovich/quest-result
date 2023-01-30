@@ -13,11 +13,6 @@ build:
 	@docker build . -t $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(PROJECT_NAME):$(PROJECT_VERSION)
 
 push: build
-	@aws ecr get-login-password --region $(AWS_REGION) | \
-	docker login --username AWS --password-stdin $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com && \
-	docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(PROJECT_NAME):$(PROJECT_VERSION)
-
-push: build
 	@git diff-index --quiet HEAD # git branch must be clean
 	@aws ecr get-login-password --region $(AWS_REGION) | \
 		docker login --username AWS --password-stdin $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com && \
