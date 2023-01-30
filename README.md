@@ -51,6 +51,7 @@ $ make build
 The terraform in this project will bring up a VPC and most resources required to run this application in the Amazon Cloud. 
 
 #### Modules
+I created 3 terraform modules in order to encapsulate resources and separate concerns. They are specific to this project and mainly used for readability purposes.
 * [ecs_fargate_service](terraform/modules/ecs_fargate_service/README.md)
 * [load_balancer](terraform/modules/load_balancer/README.md)
 * [network](terraform/modules/network/README.md)
@@ -63,7 +64,7 @@ The terraform in this project will bring up a VPC and most resources required to
 | ecr_repository_name | string | No | The ECR repository name. Defaults to app_name if not supplied |
 | tags | map(string) | No | Map of tags to apply to taggable resources. By default ProjectName and ProjectVersion are set but tags can be added here as needed |
 | fqdn | string | Yes | Fully qualified domain name |
-| instance_count | number | number of instances to run on ECS |
+| instance_count | number | Yes| number of instances to run on ECS |
 | lb_access_logs_bucket | string | Yes | s3 bucket for load balancer's access logs |
 
 
@@ -128,12 +129,17 @@ module "ecs_fargate_service" {
 There are a number of changes I would make to this project given time. 
 1. it does bother me that the docker check does not pass. If this were a hard requirement and I am unable to debug the source code I would include a version of the application that runs on a simple ec2 instance.
 2. Add further network security. The Application should not need public IP addresses but for some reason I could not get it to pass health checks with a private IP. It's difficult to debug through without source code.
-3. I would make the application environment aware. staging/qa/production environments created using aws organizations separate accounts. 
-4. Create
-5. CI/CD with my preferred git flow:
+3. Set up a remote backend for the terrform state
+4. I would make the application environment aware. staging/qa/production environments created using aws organizations separate accounts. 
+5. Add Auto-Scaling for service tasks
+6. CI/CD with my preferred git flow:
 	- git actions to include terraform plans on pull requests
 	- commits to main trigger a deployment into the staging environment
 	- pushed tags trigger a deployment into the production environment. 
+7. Setup application logging
+	- create cloudwatch log group
+	- create AWS Openserch log group subscription for kibana
+	
 
 
 
