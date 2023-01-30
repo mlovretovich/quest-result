@@ -67,7 +67,15 @@ The terraform in this project will bring up a VPC and most resources required to
 | lb_access_logs_bucket | string | Yes | s3 bucket for load balancer's access logs |
 
 
-#### <details><summary>Usage</summary>
+#### Usage
+set variables in terraform/default.tfvars
+```
+instance_count        = [number]
+fqdn                  = [domain] # fully qualified domain name
+lb_access_logs_bucket = [bucket]
+```
+
+main.tf
 ```hcl
 terraform {
   required_providers {
