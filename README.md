@@ -55,6 +55,11 @@ $ make build
 ```
 ### Terraform
 The terraform in this project will bring up a VPC and most resources required to run this application in the Amazon Cloud. 
+#### Requirements
+This terraform relies on the following resources to be present within the the AWS account.
+* A Route53 Zone for the FQDN.
+* An ECR Repository for the docker container. This *must* be named after the project name.
+* A S3 bucket for the load balancer's access logs
 
 #### Modules
 I created 3 terraform modules in order to encapsulate resources and separate concerns. They are specific to this project and mainly used for readability purposes.
@@ -67,7 +72,6 @@ I created 3 terraform modules in order to encapsulate resources and separate con
 | ---- | ---- | --------- | ----- | 
 | app_name | string | Yes | The app_name variable is set in the Makefile based on the project's directory name | 
 | app_version | string | Yes | The app_version variable is set in the Makefile based on the current git tag + commit number |
-| ecr_repository_name | string | No | The ECR repository name. Defaults to app_name if not supplied |
 | tags | map(string) | No | Map of tags to apply to taggable resources. By default ProjectName and ProjectVersion are set but tags can be added here as needed |
 | fqdn | string | Yes | Fully qualified domain name |
 | instance_count | number | Yes| number of instances to run on ECS |
@@ -94,7 +98,7 @@ terraform {
 }
 
 locals {
-  ecr_repository_name = var.ecr_repository_name == null ? var.app_name : var.ecr_repository_name
+  ecr_repository_name = var.app_name
   tags = merge(var.tags, { 
     ProjectName    = var.app_name
     Version = var.app_version
