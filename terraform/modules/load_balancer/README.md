@@ -15,3 +15,17 @@ This module creates a load balancer within a vpc with both HTTP and HTTPS listen
 | Name | Type | Description |
 | ---- | ---- | ----------- | 
 | target_group_arn | string | ARN of the target group created |
+
+## Usage
+
+```hcl
+module "load_balancer" {
+  source                = "./modules/load_balancer"
+  fqdn                  = [fqdn]
+  vpc_id                = [vpc_id]
+  app_name              = [app_name]
+  lb_access_logs_bucket = [lb_access_logs_bucket]
+  subnet_ids            = [subnet_ids]
+}
+
+```
