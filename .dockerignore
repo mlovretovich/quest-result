@@ -1,0 +1,12 @@
+terraform
+screenshots
+
+node_modules
+npm-debug.log
+
+
+Makefile
+
+terraform/*
+.git
+.gitignore
