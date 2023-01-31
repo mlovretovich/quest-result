@@ -145,6 +145,7 @@ There are a number of changes I would make to this project given time.
 7. Setup application logging
 	- create cloudwatch log group
 	- create AWS Openserch log group subscription for kibana
+8. Continue to make modules more re-usable by adding variables to cover more use cases.
 	
 
 
